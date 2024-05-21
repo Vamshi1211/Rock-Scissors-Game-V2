@@ -13,6 +13,8 @@ import {
   ReactPopUpContainer,
   TriggerButton,
   RulesImage,
+  PopupContainer,
+  CrossButton,
 } from './StyledComponents'
 import ScoreComponentView from './components/ScoreComponentsView'
 import GameViewComponent from './components/GameViewComponent'
@@ -37,6 +39,11 @@ const choicesList = [
   },
 ]
 
+// const overlayStyles = {
+//   backgroundColor: '#223a5f',
+//   opacity: 0.8,
+// }
+
 class App extends Component {
   state = {
     isGameStarted: false,
@@ -44,6 +51,7 @@ class App extends Component {
     score: 0,
     opponentChoice: '',
     gameResult: '',
+    // rulesClicked: false,
   }
 
   onGameStart = (yourChoiceUrl, gameId) => {
@@ -133,10 +141,14 @@ class App extends Component {
     )
   }
 
+  //   onRulesClicked = () => {
+  //     this.setState({rulesClicked: true})
+  //   }
+
   render() {
-    const {score} = this.state
+    const {score, rulesClicked} = this.state
     return (
-      <GameContainer>
+      <GameContainer rules={rulesClicked}>
         <TopContainer>
           <ScoreComponentView score={score} />
         </TopContainer>
@@ -145,25 +157,33 @@ class App extends Component {
         <ReactPopUpContainer>
           <Popup
             modal
-            trigger={<TriggerButton>RULES</TriggerButton>}
+            trigger={open => (
+              <TriggerButton
+                type="button"
+                open={open}
+                // onClick={this.onRulesClicked}
+              >
+                RULES
+              </TriggerButton>
+            )}
+            // overlayStyle={overlayStyles}
             className="popup-container"
           >
             {close => (
-              <>
-                <button
+              <PopupContainer>
+                <CrossButton
                   type="button"
                   className="trigger-button"
                   onClick={() => close()}
                 >
-                  <RiCloseLine />.
-                </button>
-                <div>
-                  <RulesImage
-                    src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"
-                    alt="rules"
-                  />
-                </div>
-              </>
+                  <RiCloseLine className="icon" />.
+                </CrossButton>
+
+                <RulesImage
+                  src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"
+                  alt="rules"
+                />
+              </PopupContainer>
             )}
           </Popup>
         </ReactPopUpContainer>

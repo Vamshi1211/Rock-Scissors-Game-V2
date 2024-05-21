@@ -13,6 +13,7 @@ export const GameContainer = styled.div`
   align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
+  opacity: ${props => (props.rules ? 0.8 : 1)};
 `
 export const TopContainer = styled.div`
   width: 90%;
@@ -69,27 +70,6 @@ export const SelectedTextValue = styled(SelectedText)`
   }
 `
 export const PlayAgainButton = styled.button`
-  padding: 15px 45px 15px 45px;
-  background-color: #ffffff;
-  color: #223a5f;
-  font-family: 'Bree Serif';
-  font-size: 20px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  cursor: pointer;
-  @media screen and (min-width: 576px) {
-    padding: 20px 60px 20px 60px;
-    font-size: 24px;
-  }
-`
-export const ReactPopUpContainer = styled.div`
-  align-self: flex-end;
-  margin-right: 40px;
-  background-color: #ffffff;
-`
-
-export const TriggerButton = styled.button`
   padding: 15px 30px 15px 30px;
   background-color: #ffffff;
   color: #223a5f;
@@ -99,8 +79,32 @@ export const TriggerButton = styled.button`
   border-radius: 8px;
   outline: none;
   cursor: pointer;
+  margin-bottom: 0px;
   @media screen and (min-width: 576px) {
-    padding: 20px 40px 20px 40px;
+    padding: 10px 40px 10px 40px;
+    font-size: 24px;
+  }
+`
+export const ReactPopUpContainer = styled.div`
+  align-self: flex-end;
+  margin-right: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+`
+
+export const TriggerButton = styled.button`
+  padding: 10px 30px 10px 30px;
+  background-color: #ffffff;
+  color: #223a5f;
+  font-family: 'Bree Serif';
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  opacity: ${props => (props.open ? 0.5 : 1)};
+  @media screen and (min-width: 576px) {
+    padding: 10px 40px 10px 40px;
     font-size: 24px;
   }
 `
@@ -114,5 +118,29 @@ export const PopupText = styled.p`
   }
 `
 export const RulesImage = styled.img`
-  width: 40%;
+  width: 80%;
+`
+
+export const PopupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  opacity: 1;
+`
+
+export const CrossButton = styled.button`
+  background-color: #ffffff;
+  color: #223a5f;
+  font-family: 'Bree Serif';
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  align-self: flex-end;
 `

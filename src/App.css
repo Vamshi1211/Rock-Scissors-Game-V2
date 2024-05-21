@@ -10,12 +10,29 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .popup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  opacity: 1;
+}
+/* .trigger-button {
+  padding: 10px 30px 10px 30px;
   background-color: #ffffff;
-  width: 100%;
-  border: 1px solid red;
+  color: #223a5f;
+  font-family: 'Bree Serif';
+  font-size: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+} */
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+@media screen and(min-width: 576px) {
+  .icon {
+    height: 40px;
+    width: 40px;
+  }
 }
